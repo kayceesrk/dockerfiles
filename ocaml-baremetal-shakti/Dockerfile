@@ -47,8 +47,3 @@ RUN cp prebuilt/example.o prebuilt/payload.o && mkdir build
 WORKDIR build
 RUN cmake .. && make
 RUN qemu-system-riscv64 -machine spike_v1.10 -smp 1 -m 1G -serial stdio -kernel kernel
-
-WORKDIR ..
-RUN wget https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh
-RUN echo | sh ./install.sh
-RUN opam init -a --disable-sandboxing --bare
